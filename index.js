@@ -9,6 +9,8 @@ app.set('view engine' , 'ejs');
 // //import routes
 const authRoute = require('./routes/auth');
 
+const verify = require('./routes/verifyToken');
+
 dotenv.config();
 
 //connect to db
@@ -35,6 +37,11 @@ app.get('/register' , (req, res)=> {
 app.get('/login' , (req, res)=> { 
     res.render('loginForm');
 })
+
+app.get('/posts' ,verify, (req, res)=> { 
+    res.render('posts');
+})
+
 
 
 //routes middlewares
