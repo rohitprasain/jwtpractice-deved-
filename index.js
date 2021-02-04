@@ -27,8 +27,13 @@ app.use(express.urlencoded({
     extended: true
   }))
 
+
 app.get('/register' , (req, res)=> { 
-    res.render('form');
+    res.render('registrationForm');
+})
+
+app.get('/login' , (req, res)=> { 
+    res.render('loginForm');
 })
 
 
