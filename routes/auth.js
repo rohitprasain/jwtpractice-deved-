@@ -11,6 +11,12 @@ router.get('/haha' , (req, res , next) => {
 
 router.post('/register' , async (req , res)=> {
 
+    //validate the form values first using @hapi/joi
+    //
+    //
+    //
+
+
     //checking if the user already exists in the database
 
     const emailExist = await User.findOne({
@@ -37,6 +43,8 @@ router.post('/register' , async (req , res)=> {
     try {
         const savedUser = await user.save();
         res.send(savedUser);
+        //res.send( { user : user._id});
+
     }catch(err){
         res.status(400).send(err);
     }
